@@ -1,0 +1,129 @@
+# ============================================================================
+# 《给 Vue 工程师的 Java 全栈教程》 mkdocs 配置
+# 主题: mkdocs-material | 本地构建: mkdocs serve / mkdocs build
+# ============================================================================
+site_name: 给 Vue 工程师的 Java 全栈教程
+site_description: 从 Java 8 到 Spring Boot，专为前端工程师设计的全栈教程
+site_author: shinelon
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/language-java
+  features:
+    - navigation.instant         # SPA 式瞬时切换，无白屏
+    - navigation.tracking        # URL 随标题锚点变化
+    - navigation.tabs            # 顶级「篇」用标签栏
+    - navigation.sections        # 二级按 section 分组
+    - navigation.expand          # 默认展开侧边栏
+    - navigation.top             # 「回到顶部」按钮
+    - navigation.indexes         # 允许 index.md 作为分组首页
+    - toc.follow                 # 侧边目录跟随滚动高亮
+    - search.suggest             # 搜索联想
+    - search.highlight           # 搜索结果高亮
+    - content.code.copy          # 代码块「复制」按钮
+    - content.code.annotate      # 代码注解
+    - content.tabs.link          # 标签页联动
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换亮色模式
+
+plugins:
+  - search:
+      lang:
+        - en
+        - ja   # mkdocs 无原生中文分词，日文分词器对中文检索有显著帮助
+
+markdown_extensions:
+  - admonition                  # !!! note / tip / warning 提示框
+  - pymdownx.details            # 可折叠的 ??? note
+  - pymdownx.superfences:       # 嵌套代码块 + mermaid 图表（material 原生支持）
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.snippets:          # ★ 核心：--8<-- 引用 code/ 下真实 .java，零漂移
+      base_path:
+        - code
+      check_paths: true         # 引用路径找不到时硬报错（防止静默失效）
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite       # 行内代码高亮 `#!java var`
+  - attr_list                   # 给图片/代码块加属性
+  - md_in_html                  # markdown 嵌入 HTML
+  - def_list                    # 定义列表
+  - footnotes                   # 脚注 [^1]
+  - tables                      # 表格
+  - toc:
+      permalink: true           # 标题永久链接锚点
+
+nav:
+  - 首页: index.md
+  - 第一篇 · 准备与地图:
+      - 写给谁、怎么读: 01-prep/01-intro.md
+      - 开发环境搭建: 01-prep/02-env-setup.md
+      - "Vue/JS 工程师的 Java 速查表": 01-prep/03-cheatsheet.md
+      - Maven 必备: 01-prep/maven-essentials.md
+  - 第二篇 · Java 语言基础:
+      - 基本类型与变量: 02-language/04-types-variables.md
+      - 流程控制: 02-language/05-control-flow.md
+      - 方法与数组: 02-language/06-methods-arrays.md
+      - 面向对象基础: 02-language/07-oop-basics.md
+      - 封装·继承·多态: 02-language/08-encap-inherit-poly.md
+      - 接口与抽象类: 02-language/09-interface-abstract.md
+      - 包与访问修饰符: 02-language/10-packages-access.md
+      - 异常处理: 02-language/11-exceptions.md
+      - 枚举与包装类: 02-language/12-enum-wrapper.md
+      - 集合框架: 02-language/13-collections.md
+      - 泛型: 02-language/14-generics.md
+      - Lambda 与函数式接口: 02-language/15-lambda.md
+      - Stream API: 02-language/16-stream.md
+      - IO 与文件基础: 02-language/17-io.md
+      - 注解与反射基础: 02-language/18-annotation-reflection.md
+      - 多线程入门: 02-language/19-concurrency.md
+      - 篇章路线图: 02-language/roadmap.md
+  - 第三篇 · Spring Boot 后端:
+      - IoC 与 DI: 03-spring/20-ioc-di.md
+      - 第一个 Spring Boot 项目: 03-spring/21-first-project.md
+      - REST 与分层架构: 03-spring/22-rest-layering.md
+      - 参数接收与校验: 03-spring/23-params-validation.md
+      - 统一响应与全局异常: 03-spring/24-response-exception.md
+      - 配置管理: 03-spring/25-config.md
+      - MyBatis-Plus 数据访问: 03-spring/26-mybatis-plus.md
+      - 数据库设计实战: 03-spring/27-database-design.md
+      - 任务 CRUD 业务实现: 03-spring/28-task-crud.md
+      - JWT 认证: 03-spring/29-jwt-auth.md
+      - 跨域 CORS: 03-spring/30-cors.md
+      - 接口测试: 03-spring/31-testing.md
+      - 篇章路线图: 03-spring/roadmap.md
+  - 第四篇 · 全栈实战:
+      - 前后端联调总览: 04-fullstack/32-integration-overview.md
+      - Vue 3 实现前端: 04-fullstack/33-vue-frontend.md
+      - 联调常见坑: 04-fullstack/34-common-pitfalls.md
+      - 部署上线: 04-fullstack/35-deploy.md
+      - 篇章路线图: 04-fullstack/roadmap.md
+  - 第五篇 · 进阶与新特性:
+      - 从 JDK 8 到 17: 05-advanced/36-jdk8-to-17.md
+      - 从 Spring Boot 2.7 到 3.x: 05-advanced/37-springboot3.md
+      - JVM 入门与线程池实战: 05-advanced/38-jvm-threadpool.md
+      - 学习路线与生态: 05-advanced/39-learning-path.md
+      - 篇章路线图: 05-advanced/roadmap.md

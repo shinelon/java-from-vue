@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 第二篇 · Java 语言基础 示例聚合。语言篇每章一个 module，新增章节在此 <modules> 追加。 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.javaglm</groupId>
+        <artifactId>javaglm-code</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <artifactId>javaglm-language</artifactId>
+    <packaging>pom</packaging>
+    <name>第二篇 · Java 语言基础示例（聚合）</name>
+
+    <modules>
+        <module>ch04-types</module>
+        <module>ch05-control-flow</module>
+        <module>ch06-methods-arrays</module>
+        <module>ch07-oop-basics</module>
+        <module>ch08-encap-inherit-poly</module>
+        <module>ch09-interface-abstract</module>
+        <module>ch10-packages-access</module>
+        <module>ch11-exceptions</module>
+        <module>ch12-enum-wrapper</module>
+        <module>ch13-collections</module>
+        <module>ch14-generics</module>
+        <module>ch15-lambda</module>
+        <module>ch16-stream</module>
+        <module>ch17-io</module>
+        <module>ch18-annotation-reflection</module>
+        <module>ch19-concurrency</module>
+    </modules>
+</project>

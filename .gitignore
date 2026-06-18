@@ -1,0 +1,29 @@
+# ===== Python / mkdocs =====
+.venv/
+__pycache__/
+*.py[cod]
+# mkdocs build 产物
+site/
+
+# ===== Maven / Java =====
+target/
+*.class
+*.jar
+*.war
+dependency-reduced-pom.xml
+.mvn/wrapper/maven-wrapper.jar
+
+# ===== IDE =====
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+*.swp
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Claude Code（本地会话/配置，不入库）=====
+.claude/

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  聚合根 POM：一条 `mvn -f code/pom.xml compile` 即可编译全部可运行示例。
+  - 既是聚合器（<modules>）：统一构建所有模块
+  - 也是语言篇模块的父 POM：统一 Java 8 编译基线（release 8，本机 JDK 17 可交叉编译）
+  注意：task-manager 用 spring-boot-starter-parent 作为自己的 parent，仅作为 module 被聚合。
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.javaglm</groupId>
+    <artifactId>javaglm-code</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>JavaGLM 可运行代码（聚合根）</name>
+    <description>《给 Vue 工程师的 Java 全栈教程》全部可运行示例</description>
+
+    <properties>
+        <!-- 全书代码基线：Java 8 风格。本机 JDK 17 通过 release 8 交叉编译。 -->
+        <maven.compiler.release>8</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <modules>
+        <module>language</module>
+        <module>task-manager</module>
+        <module>advanced</module>
+    </modules>
+
+    <build>
+        <!-- 钉死现代 compiler 插件版本：旧版（如 3.1）不支持 release 参数，会回退到 Java 5 -->
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.11.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
