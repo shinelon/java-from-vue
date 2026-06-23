@@ -3,6 +3,8 @@
 > 用 JS/TS/Vue 概念做桥梁，带前端工程师从 Java 语法走到能独立写 Spring Boot 后端，并完成全栈打通。
 > 本教程自身用 **mkdocs + Material** 构建，代码示例**全部真实可编译**、文档直接引用嵌入、零漂移。
 
+📦 **仓库地址**：<https://github.com/shinelon/java-from-vue> ｜ 发现问题欢迎提 Issue / PR
+
 ## 技术栈
 
 | 维度 | 选型 |

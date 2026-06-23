@@ -5,6 +5,10 @@
 site_name: 给 Vue 工程师的 Java 全栈教程
 site_description: 从 Java 8 到 Spring Boot，专为前端工程师设计的全栈教程
 site_author: shinelon
+site_url: http://java.sunyq.cc/
+repo_url: https://github.com/shinelon/java-from-vue
+repo_name: shinelon/java-from-vue
+edit_uri: edit/master/docs/
 docs_dir: docs
 site_dir: site
 
